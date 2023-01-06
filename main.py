@@ -1,5 +1,6 @@
 import random
 
+#this creates the deck
 numbers = [1, 2, 3]
 shadings = ['solid', 'striped', 'open']
 shapes = ['squiggle', 'diamond', 'oval']
@@ -13,10 +14,12 @@ for number in numbers:
             for color in colors:
                 deck.append((number, shading, shape, color))
 
+#Draws 12 random cards from the deck
 sample = random.sample(deck, 12)
 
 print(sample)
 
+#this function will take any iterable and generate all the possible combinations of k size of its items
 def print_combinations(iterable, k):
     combinations = []
     def comb_generator(start, comb=list):
@@ -33,8 +36,11 @@ def print_combinations(iterable, k):
 
 cards_indexes = [i for i, card in enumerate(sample)]
 
+#list with all the combinations of 3 cards from the 12 previously drawn
+#each card is represented as an index number of a list
 index_combinations = print_combinations(cards_indexes, 3)
 
+#iterates through each combination of 3 cards until it finds a set.
 for x in index_combinations:
     card_a = sample[x[0]]
     card_b = sample[x[1]]
